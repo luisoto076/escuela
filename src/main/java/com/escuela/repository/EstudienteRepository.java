@@ -34,5 +34,9 @@ public class EstudienteRepository {
         return null;
     }
 
+    public List<Estudiante> obtenerTodosEstudiantes(){
+        return base;
+    }
+
 
 }

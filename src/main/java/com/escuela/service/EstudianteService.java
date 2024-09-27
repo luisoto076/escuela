@@ -4,6 +4,8 @@ import com.escuela.model.Estudiante;
 import com.escuela.model.Usuario;
 import com.escuela.repository.EstudienteRepository;
 
+import java.util.List;
+
 public class EstudianteService {
 
     private static final String foto = "foto.png";
@@ -24,6 +26,10 @@ public class EstudianteService {
                 tokensEstudiante[2],
                 tokensEstudiante[3]
         );
+    }
+
+    public List<Estudiante> obtenerTodosEstudiantes(){
+        return estudianteRepository.obtenerTodosEstudiantes();
     }
 
     public Estudiante obtenEstudiantePorMatricula(String matricula){

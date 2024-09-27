@@ -10,6 +10,7 @@ import com.escuela.service.GrupoService;
 import com.escuela.service.ProfesorService;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EscuelaController {
@@ -17,27 +18,39 @@ public class EscuelaController {
     ProfesorService profesorService = new ProfesorService();
     EstudianteService estudianteService = new EstudianteService();
     GrupoService grupoService = new GrupoService();
+    Scanner sc = new Scanner(System.in);
 
-    public String leeDatos(Scanner sc, String mensaje){
+    public String leeDatos(String mensaje){
         System.out.println(mensaje);
         return sc.nextLine();
     }
 
-    public Estudiante creaEstudiante(){
-        Scanner sc = new Scanner(System.in);
-        String cadenaEstudiante = leeDatos(sc, "Ingesa los datos del estudiante");
-        Estudiante estudiante = estudianteService.creaEstudiante(cadenaEstudiante.split(","));
+    public Estudiante leeEstudiante(){
+        String cadenaEstudiante = leeDatos("Ingesa los datos del estudiante\nNOMBRE,CORREO,PASSWOR,MATRICULA"); // "Luis Soto, 3110025976"
+        Estudiante estudiante = estudianteService.creaEstudiante(cadenaEstudiante.split(",")); // ["Luis Soto", "3110259765"]
         return  estudiante;
     }
 
-    public Estudiante obtenEstudiantePorMatricula(String matricula){
-        return estudianteService.obtenEstudiantePorMatricula(matricula);
+    public Asignatura leeAsignatura(){
+        return null;
     }
 
-    public Grupo creaGrupo(){
+    public Profesor leeProfesor(){
+        String cadenaProfesor = leeDatos("Ingresa los datos del profesor\nNOMBRE,CORREO,PASSWORD");
+        Profesor profesor = profesorService.creaProfesor(cadenaProfesor.split(","));
+        return profesor;
+    }
+
+    public List<Estudiante> obtenerTodosEstudiantes(){
+        return estudianteService.obtenerTodosEstudiantes();
+    }
+
+
+
+    /*public Grupo creaGrupo(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido al asistente para crear Grupos");
-        String asignaturaCadena = leeDatos(sc,"Ingresa la asignatura");
+        String asignaturaCadena = leeDatos(scerr,"Ingresa la asignatura");
         Asignatura asignatura = asignaturaService.creaAsignatura(asignaturaCadena.split(","));
         String profesorCadena = leeDatos(sc, "Ingresa los datos del profesor");//  Juan Perez,juanperez@correo.com,1234
         //profesorCadena.split(",") -> {{Juan Perez},{juanperez@correo.com},{1234}}
@@ -52,17 +65,6 @@ public class EscuelaController {
         String[] grupoCadena =leeDatos(sc, "Ingresa la clave del grupo y el horario").split(",");
         return  grupoService.crearGrupo(Long.parseLong(grupoCadena[0]),grupoCadena[1],profesor,asignatura, estudiantes);
 
-    }
+    }*/
 
-    public static void main(String[] args) {
-        EscuelaController es = new EscuelaController();
-        es.creaEstudiante();
-        es.creaEstudiante();
-        es.creaEstudiante();
-        es.creaEstudiante();
-        Estudiante e1 = es.obtenEstudiantePorMatricula("100001");
-        Estudiante e2 = es.obtenEstudiantePorMatricula("100002");
-        Estudiante e3 = es.obtenEstudiantePorMatricula("100003");
-        Estudiante e4 = es.obtenEstudiantePorMatricula("100004");
-    }
 }
