@@ -37,4 +37,8 @@ public class Profesor {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+    public String toString(){
+        return String.format("%s, %s\n", nombre, usuario.getCorreo());
+    }
 }

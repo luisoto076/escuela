@@ -46,4 +46,8 @@ public class Asignatura {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
+
+    public String toString(){
+        return String.format("%s, %d, %s, %s\n", nombre, creditos, grado, nivel);
+    }
 }

@@ -32,7 +32,9 @@ public class EscuelaController {
     }
 
     public Asignatura leeAsignatura(){
-        return null;
+        String cadenaAsignatura = leeDatos("Ingresa los datos de la asignatura\nNOMBRE,CREDITOS,NIVEL,GRADO");
+        Asignatura asignatura = asignaturaService.creaAsignatura(cadenaAsignatura.split(","));
+        return asignatura;
     }
 
     public Profesor leeProfesor(){
@@ -45,6 +47,13 @@ public class EscuelaController {
         return estudianteService.obtenerTodosEstudiantes();
     }
 
+    public List<Profesor> obtenerTodosProfesores(){
+        return profesorService.obtenerTodoProfesor();
+    }
+
+    public List<Asignatura> obtenerTodasAsignaturas(){
+        return asignaturaService.obtenerTodasAsignaturas();
+    }
 
 
     /*public Grupo creaGrupo(){

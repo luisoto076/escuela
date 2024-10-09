@@ -1,5 +1,6 @@
 package com.escuela.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Grupo {
@@ -17,6 +18,12 @@ public class Grupo {
         this.lista = lista;
         this.horario = horario;
         this.asignatura = asignatura;
+    }
+
+    public Grupo(long idGrupo, String horario){
+        this.idGrupo = idGrupo;
+        this.horario = horario;
+        this.lista = new ArrayList<>();
     }
 
     public long getIdGrupo() {

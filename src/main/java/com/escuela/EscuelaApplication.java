@@ -18,7 +18,9 @@ public class EscuelaApplication {
 			System.out.println("1.crear Estudiante");
 			System.out.println("2.crear Profesor");
 			System.out.println("3.crear Asignatura");
-			System.out.println("4.Ver los todos los estudiantes");
+			System.out.println("4.Ver todos los estudiantes");
+			System.out.println("5.Ver todos los Profesores");
+			System.out.println("6.Ver todas las Asignaturas");
 			System.out.println("0.Salir");
 			String res = sc.nextLine();
 			switch (res){
@@ -33,6 +35,12 @@ public class EscuelaApplication {
 					break;
 				case "4":
 					System.out.println(controller.obtenerTodosEstudiantes());
+					break;
+				case "5":
+					System.out.println(controller.obtenerTodosProfesores());
+					break;
+				case "6":
+					System.out.println(controller.obtenerTodasAsignaturas());
 					break;
 				case "0":
 					return;
