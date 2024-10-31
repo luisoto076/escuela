@@ -43,6 +43,12 @@ public class EscuelaController {
         return profesor;
     }
 
+    public Grupo leeGrupo(){
+        String cadenaGrupo = leeDatos("Ingresa los datos del grupo\nID,HORARIO");
+        Grupo grupo = grupoService.crearGrupo(cadenaGrupo.split(","));
+        return grupo;
+    }
+
     public List<Estudiante> obtenerTodosEstudiantes(){
         return estudianteService.obtenerTodosEstudiantes();
     }
@@ -53,6 +59,10 @@ public class EscuelaController {
 
     public List<Asignatura> obtenerTodasAsignaturas(){
         return asignaturaService.obtenerTodasAsignaturas();
+    }
+
+    public List<Grupo> obtenerTodosLosGrupos(){
+        return grupoService.obteneTodosLosGrupos();
     }
 
 

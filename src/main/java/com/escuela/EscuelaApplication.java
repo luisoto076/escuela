@@ -18,9 +18,11 @@ public class EscuelaApplication {
 			System.out.println("1.crear Estudiante");
 			System.out.println("2.crear Profesor");
 			System.out.println("3.crear Asignatura");
-			System.out.println("4.Ver todos los estudiantes");
-			System.out.println("5.Ver todos los Profesores");
-			System.out.println("6.Ver todas las Asignaturas");
+			System.out.println("4.crearGrupo");
+			System.out.println("5.Ver todos los estudiantes");
+			System.out.println("6.Ver todos los Profesores");
+			System.out.println("7.Ver todas las Asignaturas");
+			System.out.println("8. Ver todos los grupos");
 			System.out.println("0.Salir");
 			String res = sc.nextLine();
 			switch (res){
@@ -34,13 +36,18 @@ public class EscuelaApplication {
 					controller.leeAsignatura();
 					break;
 				case "4":
+					controller.leeGrupo();
+				case "5":
 					System.out.println(controller.obtenerTodosEstudiantes());
 					break;
-				case "5":
+				case "6":
 					System.out.println(controller.obtenerTodosProfesores());
 					break;
-				case "6":
+				case "7":
 					System.out.println(controller.obtenerTodasAsignaturas());
+					break;
+				case "8":
+					System.out.println(controller.obtenerTodosLosGrupos());
 					break;
 				case "0":
 					return;

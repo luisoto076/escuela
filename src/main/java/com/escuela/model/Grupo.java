@@ -57,4 +57,8 @@ public class Grupo {
     public void setAsignatura(Asignatura asignatura) {
         this.asignatura = asignatura;
     }
+
+    public String toString(){
+        return String.format("%d,%s,\n", idGrupo,horario);
+    }
 }
